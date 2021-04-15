@@ -1,3 +1,6 @@
 devel/
 build/
 tmp/
+
+.catkin_tools/
+.catkin_workspace
