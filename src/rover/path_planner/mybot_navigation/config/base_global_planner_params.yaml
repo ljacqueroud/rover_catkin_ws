@@ -1,0 +1,2 @@
+use_dijkstra: false
+visualize_potential: true

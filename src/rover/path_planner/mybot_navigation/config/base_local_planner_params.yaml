@@ -1,0 +1,48 @@
+controller_frequency: 5
+
+TrajectoryPlannerROS:
+  max_vel_x: 0.5
+  min_vel_x: 0.01
+  max_vel_theta: 1.5
+  min_in_place_vel_theta: 0.01
+
+  acc_lim_theta: 1.5
+  acc_lim_x: 0.5
+  acc_lim_y: 0.5
+
+#  meter_scoring: true # maybe remove this
+  holonomic_robot: false
+
+#  pdist_scale: 11
+#  gdist_scale: 0.5
+#  pdist_scale: 0.6
+#  occdist_scale: 0.02
+
+#Set the tolerance on achieving a goal
+  xy_goal_tolerance: 0.15
+  yaw_goal_tolerance: 0.15
+  latch_xy_goal_tolerance: false
+
+  #We'll configure how long and with what granularity we'll forward simulate trajectories
+  sim_time: 4
+  sim_granularity: 0.1
+  angular_sim_granularity: 0.1
+  vx_samples: 200
+  vtheta_samples: 30
+
+  #Parameters for scoring trajectories
+  goal_distance_bias: 2
+  path_distance_bias: 0.5
+  gdist_scale: 2 #0.8
+  pdist_scale: 0.5
+  occdist_scale: 0.00005
+  heading_lookahead: 2
+
+ #We'll use the Trajectory Rollout to control instead of Dynamic Window Approach for this example
+  dwa: true
+
+  #How far the robot must travel before oscillation flags are reset
+  oscillation_reset_dist: 0.05
+
+  #Eat up the plan as the robot moves along it
+  prune_plan: true

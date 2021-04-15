@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!-- launch file to start the ros_control controllers -->
+
+<launch>
+    <!-- load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find wheels_control)/config/wheels_control.yaml" command="load"/>
+    
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" 
+        respawn="true" output="screen" ns="rover"
+        args="joint_state_controller 
+              left_joint_effort_controller_1
+              left_joint_effort_controller_2
+              left_joint_effort_controller_3 
+              right_joint_effort_controller_1
+              right_joint_effort_controller_2
+              right_joint_effort_controller_3
+              transmission_rocker_left"/>
+
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher_wheel" pkg="robot_state_publisher" type="robot_state_publisher"
+     respawn="false" output="screen">
+     <remap from="/joint_states" to="/rover/joint_states" />
+    </node>
+
+</launch>

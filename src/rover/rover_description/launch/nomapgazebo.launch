@@ -1,0 +1,69 @@
+<launch>
+
+  <!-- Start gazebo and load the world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find rover_description)/worlds/mars_AR.world" />
+    <arg name="paused" value="true" />
+    <arg name="use_sim_time" value="true" />
+    <arg name="verbose" value="true" />
+    <arg name="debug" value="true" />
+  </include>
+
+  <!--
+  <node name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_link base_footprint 40" />
+    -->
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find rover_description)/urdf/Rover_URDF_V6.urdf.xacro'"/>
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn the rover -->
+  <node name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-urdf -param robot_description -model rover -z 1"
+    output="screen" />
+
+  <node name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+
+    <node name="joint_state_publisher_gaz"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+
+  <!-- Start the wheel and base controllers -->
+  <include file="$(find wheels_control)/launch/wheels_control.launch" />
+
+  <!-- Start the base stabilizer -->
+  <node name="base_PID"
+    pkg="wheels_control"
+    type="base_stabilizer.py" />
+
+  <!-- Start the odometry node-->
+  <node name="odom_publisher"
+    pkg="rover_description"
+    type="odom_to_tf.py" />
+
+    <!--  Converter node node 
+  <node pkg="elevation_mapping" type="elevation_mapping_Etienne" name="converter" output="screen">
+  </node>
+  -->
+
+  <!-- Elevation mapping node   
+  <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
+
+    <rosparam command="load" file="$(find rover_description)/config/robot_elevation_map.yaml" />
+
+    <rosparam command="load" file="$(find elevation_mapping)/config/sensor_processors/velodyne_HDL-32E.yaml" />
+    <rosparam command="load" file="$(find elevation_mapping_demos)/config/postprocessing/postprocessor_pipeline.yaml" />
+  </node>
+  -->
+
+
+</launch>

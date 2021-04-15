@@ -1,0 +1,11 @@
+point_cloud_topic: "/os1_cloud_node/points"
+map_frame_id: "odom"
+robot_base_frame_id: "link_chassis"
+robot_pose_with_covariance_topic: "/initialpose"
+robot_pose_cache_size: 200
+track_point_frame_id: "link_chassis"
+track_point_x: 0.0
+track_point_y: 0.0
+track_point_z: 0.0
+
+

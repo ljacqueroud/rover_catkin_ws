@@ -1,0 +1,45 @@
+# this file defines the controller settings through the value of the PID gains
+# and it is loaded to the param server via the roslaunch file
+
+rover: 
+
+  # publish all joint states (it's an internal node in ROS)
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100.0
+
+  transmission_rocker_left:   # with left rocker
+    type: effort_controllers/JointVelocityController
+    joint: ROCKER_LEFT
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+  # effort controllers for the 6 driving wheels
+  left_joint_effort_controller_1:   # with left rocker
+    type: effort_controllers/JointVelocityController
+    joint: WHEEL_LEFT_1
+    pid: {p: 1.0, i: 0.0, d: 0.0}  
+
+  left_joint_effort_controller_2:   # with left bogie
+    type: effort_controllers/JointVelocityController
+    joint: WHEEL_LEFT_2
+    pid: {p: 1.0, i: 0.0, d: 0.0}  
+
+  left_joint_effort_controller_3:   # with left bogie
+    type: effort_controllers/JointVelocityController
+    joint: WHEEL_LEFT_3
+    pid: {p: 1.0, i: 0.0, d: 0.0}  
+
+  right_joint_effort_controller_1:
+    type: effort_controllers/JointVelocityController
+    joint: WHEEL_RIGHT_1
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+  right_joint_effort_controller_2:
+    type: effort_controllers/JointVelocityController
+    joint: WHEEL_RIGHT_2
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+  right_joint_effort_controller_3:
+    type: effort_controllers/JointVelocityController
+    joint: WHEEL_RIGHT_3
+    pid: {p: 1.0, i: 0.0, d: 0.0}

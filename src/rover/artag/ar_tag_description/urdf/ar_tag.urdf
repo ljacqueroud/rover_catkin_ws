@@ -1,0 +1,32 @@
+<robot name="ar_tag">
+
+	<link name="simple_box_base_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="10.0"/>
+			<inertia ixx="0.074166666667" ixy="0.0" ixz="0.0" iyy="0.05854166667" iyz="0.0" izz="0.02604166667"/>
+		</inertial>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://ar_tag_description/meshes/AR0.dae"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<gazebo reference="simple_box_base_link">
+		<kp>100000.0</kp>
+		<kd>100000.0</kd>
+		<mu1>0.1</mu1>
+		<mu2>0.1</mu2>
+		<fdir1>1 0 0</fdir1>
+                <gravity>false</gravity>
+	</gazebo>
+
+</robot>

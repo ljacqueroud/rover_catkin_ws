@@ -1,0 +1,12 @@
+# static_map - True if using existing map
+
+global_costmap:
+  global_frame: odom
+  robot_base_frame: CHASSIS
+  update_frequency: 1.0
+  publish_frequency: 1.0
+  resolution: 0.25 # 0.25
+  rolling_window: true
+  static_map: false
+  width: 30.0 #10.0
+  height: 30.0 #10.0

@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter
+
+     xyz="-0.243150296037687 0.000263190444826854 -0.13955963438326"
+
+     -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rover">
+
+  <!-- virtual joint - link pair to get the inclination of the rover base -->
+  <joint name="Base_joint" type="revolute">
+      <origin
+      xyz="-0.18 0 -0.105"
+      rpy="0 0 0" />
+      <axis
+      xyz="0 1 0" />
+      <limit
+      lower="-0.05"
+      upper="0.05"
+      effort="100"
+      velocity="10" />
+      <parent link="CHASSIS"/>
+      <child link="ROVER_FRAME"/>
+  </joint>
+
+  <link
+    name="ROVER_FRAME">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="2.86544274049469" />
+      <inertia
+        ixx="0.103079825863941"
+        ixy="-0.00028741576657649"
+        ixz="-0.024219701014768"
+        iyy="0.230618546322903"
+        iyz="-8.00119839628446E-05"
+        izz="0.290474747721043" />
+    </inertial>
+  </link>
+
+<!--                                                                     -->
+
+  <link
+    name="CHASSIS">
+    <inertial>
+      <origin
+        xyz="-0.18 0.00 -0.105"
+        rpy="0 0 0" />
+      <mass
+        value="2.86544274049469" />
+      <inertia
+        ixx="0.103079825863941"
+        ixy="-0.00028741576657649"
+        ixz="-0.024219701014768"
+        iyy="0.230618546322903"
+        iyz="-8.00119839628446E-05"
+        izz="0.290474747721043" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/CHASSIS.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/CHASSIS.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="ROCKER_LEFT">
+    <inertial>
+      <origin
+        xyz="0.139048575547332 0.0568819457775859 -0.136559167839173"
+        rpy="0 0 0" />
+      <mass
+        value="0.579187943154894" />
+      <inertia
+        ixx="0.0162321767609425"
+        ixy="-0.00190251794418471"
+        ixz="0.0161440030163214"
+        iyy="0.0398303894187238"
+        iyz="0.00176620669465801"
+        izz="0.0250700952148031" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/ROCKER_LEFT.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/ROCKER_LEFT.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ROCKER_LEFT"
+    type="revolute">
+    <origin
+      xyz="0 0.23 0"
+      rpy="0 0 0" />
+    <parent
+      link="ROVER_FRAME" />
+    <child
+      link="ROCKER_LEFT" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="30" />
+      <dynamics friction="10000"/>
+  </joint>
+  <link
+    name="WHEEL_LEFT_1">
+    <inertial>
+      <origin
+        xyz="-2.99662066938211E-07 0.00360724960649245 3.84709154477303E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.661468155426341" />
+      <inertia
+        ixx="0.00328166078244697"
+        ixy="-5.15589834401003E-09"
+        ixz="1.39838043941455E-08"
+        iyy="0.0049256583160167"
+        iyz="5.53680141712725E-09"
+        izz="0.00328165560675197" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_LEFT_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_LEFT_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WHEEL_LEFT_1"
+    type="continuous">
+    <origin
+      xyz="0.382662102951201 0.123225887939064 -0.361901043548741"
+      rpy="0 0 0" />
+    <parent
+      link="ROCKER_LEFT" />
+    <child
+      link="WHEEL_LEFT_1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="BOGIE_LEFT">
+    <inertial>
+      <origin
+        xyz="-0.0111659408000892 0.0590980195480928 -0.140377658720661"
+        rpy="0 0 0" />
+      <mass
+        value="0.610019922157182" />
+      <inertia
+        ixx="0.0063962905338488"
+        ixy="9.79356386967467E-05"
+        ixz="0.00129677615475348"
+        iyy="0.0267237629056145"
+        iyz="0.00123121418340467"
+        izz="0.0225962399480278" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/BOGIE_LEFT.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/BOGIE_LEFT.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BOGIE_LEFT"
+    type="revolute">
+    <origin
+      xyz="-0.31538 0.046 -0.13063"
+      rpy="0 0 0" />
+    <parent
+      link="ROCKER_LEFT" />
+    <child
+      link="BOGIE_LEFT" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+    <dynamics friction="10"/>
+  </joint>
+  <link
+    name="WHEEL_LEFT_2">
+    <inertial>
+      <origin
+        xyz="-4.49373081301552E-07 0.00360724960451614 -1.89377730774876E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.661468155505938" />
+      <inertia
+        ixx="0.00328164893854824"
+        ixy="-6.68648749828488E-09"
+        ixz="-1.0796461343775E-08"
+        iyy="0.00492565831652997"
+        iyz="-3.54014186072834E-09"
+        izz="0.00328166745142221" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_LEFT_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_LEFT_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WHEEL_LEFT_2"
+    type="continuous">
+    <origin
+      xyz="0.21511 0.11323 -0.24086"
+      rpy="0 0 0" />
+    <parent
+      link="BOGIE_LEFT" />
+    <child
+      link="WHEEL_LEFT_2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="WHEEL_LEFT_3">
+    <inertial>
+      <origin
+        xyz="4.76505994440046E-07 0.00360724960591946 1.03132735407296E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.661468155473325" />
+      <inertia
+        ixx="0.00328164565064902"
+        ixy="7.22517474059008E-09"
+        ixz="-6.69955586059903E-09"
+        iyy="0.00492565831642526"
+        iyz="2.24508494013085E-09"
+        izz="0.00328167073916227" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_LEFT_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_LEFT_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WHEEL_LEFT_3"
+    type="continuous">
+    <origin
+      xyz="-0.250478847483995 0.113225887939228 -0.203830872402604"
+      rpy="0 0 0" />
+    <parent
+      link="BOGIE_LEFT" />
+    <child
+      link="WHEEL_LEFT_3" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="ROCKER_RIGHT">
+    <inertial>
+      <origin
+        xyz="0.137271686807884 -0.0569233460081618 -0.134816279796468"
+        rpy="0 0 0" />
+      <mass
+        value="0.573820394243737" />
+      <inertia
+        ixx="0.0160231625655688"
+        ixy="0.00190514910501952"
+        ixz="0.0159064226146121"
+        iyy="0.039279568621231"
+        iyz="-0.00176916002629723"
+        izz="0.0247223029955178" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/ROCKER_RIGHT.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/ROCKER_RIGHT.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ROCKER_RIGHT"
+    type="revolute">
+    <origin
+      xyz="0 -0.23 0"
+      rpy="0 0 0" />
+    <parent
+      link="ROVER_FRAME" />
+    <child
+      link="ROCKER_RIGHT" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+      <dynamics friction="10000"/>
+  </joint>
+  <link
+    name="WHEEL_RIGHT_1">
+    <inertial>
+      <origin
+        xyz="-3.30888364541426E-07 -0.00360724960008663 -3.58384195986439E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.661468155581708" />
+      <inertia
+        ixx="0.0032816584074904"
+        ixy="5.60136479547418E-09"
+        ixz="-1.42199336075502E-08"
+        iyy="0.00492565831656419"
+        iyz="5.08481317780286E-09"
+        izz="0.00328165798252191" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_RIGHT_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_RIGHT_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WHEEL_RIGHT_1"
+    type="continuous">
+    <origin
+      xyz="0.382662102951851 -0.123225887938964 -0.361901043547985"
+      rpy="0 0 0" />
+    <parent
+      link="ROCKER_RIGHT" />
+    <child
+      link="WHEEL_RIGHT_1" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="BOGIE_RIGHT">
+    <inertial>
+      <origin
+        xyz="0.00567951869936573 -0.0590980217287946 -0.140706474589123"
+        rpy="0 0 0" />
+      <mass
+        value="0.610019863314744" />
+      <inertia
+        ixx="0.00631982792824684"
+        ixy="4.98157067752247E-05"
+        ixz="-0.000661142252558762"
+        iyy="0.0267237618563475"
+        iyz="-0.00123409793479078"
+        izz="0.0226727014391352" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/BOGIE_RIGHT.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/BOGIE_RIGHT.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BOGIE_RIGHT"
+    type="revolute">
+    <origin
+      xyz="-0.31538 -0.046 -0.13063"
+      rpy="0 0 0" />
+    <parent
+      link="ROCKER_RIGHT" />
+    <child
+      link="BOGIE_RIGHT" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+    <dynamics friction="10"/>
+  </joint>
+  <link
+    name="WHEEL_RIGHT_2">
+    <inertial>
+      <origin
+        xyz="-2.77302413753677E-07 -0.00360724960479997 -4.01151138085254E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.661468155528425" />
+      <inertia
+        ixx="0.00328166235270544"
+        ixy="4.83301509225145E-09"
+        ixz="-1.3599983221035E-08"
+        iyy="0.00492565831662226"
+        iyz="5.82089051461768E-09"
+        izz="0.00328165403739764" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_RIGHT_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_RIGHT_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WHEEL_RIGHT_2"
+    type="continuous">
+    <origin
+      xyz="0.242334028869752 -0.113225887939364 -0.213449984851394"
+      rpy="0 0 0" />
+    <parent
+      link="BOGIE_RIGHT" />
+    <child
+      link="WHEEL_RIGHT_2" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="WHEEL_RIGHT_3">
+    <inertial>
+      <origin
+        xyz="-2.77302416251679E-07 -0.00360724960478753 -4.01151172668701E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.661468155528614" />
+      <inertia
+        ixx="0.00328166235270796"
+        ixy="4.83301497628276E-09"
+        ixz="-1.35999806871537E-08"
+        iyy="0.00492565831662373"
+        iyz="5.8208916849014E-09"
+        izz="0.00328165403739675" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_RIGHT_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rover_description/meshes/WHEEL_RIGHT_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WHEEL_RIGHT_3"
+    type="continuous">
+    <origin
+      xyz="-0.224342394241268 -0.113225887939364 -0.232286822112764"
+      rpy="0 0 0" />
+    <parent
+      link="BOGIE_RIGHT" />
+    <child
+      link="WHEEL_RIGHT_3" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+
+
+  <joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz=".15 0 .1" rpy="0 0 0"/>
+    <parent link="CHASSIS"/>
+    <child link="hokuyo"/>
+  </joint>
+
+  <!-- Hokuyo Laser -->
+  <link name="hokuyo">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+
+
+  <!-- LiDar -->
+  <xacro:include filename="$(find ouster_description)/urdf/OS1-64.urdf.xacro"/>
+  <OS1-64 parent="CHASSIS" name="os1_sensor" hz="10" samples="220" lasers="64" min_range="0.1" max_range="10.0">
+    <origin xyz="0 0 0.5" rpy="0 0 0" />
+  </OS1-64>
+
+
+
+<!-- camera -->
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+<!-- Camera -->
+ <link name="camera_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-5" />
+      <!-- RANDOM INERTIA BELOW -->
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.07 0.05"/>
+      </geometry>
+      <material name="white" />
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.07 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+  <axis xyz="0 1 0" />
+    <origin xyz="0 0 0.2" rpy="0 0 0"/>
+    <parent link="CHASSIS"/>
+    <child link="camera_link"/>
+  </joint>
+
+
+
+<!-- For ros_control -->
+<transmission name="transmission_rocker_left">  <!-- with left rocker -->
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ROCKER_LEFT">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="motor_rocker_left">
+    <mechanicalReduction>1</mechanicalReduction>   <!-- to be tuned -->
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="left_transmission_wheel_1">  <!-- with left rocker -->
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="WHEEL_LEFT_1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="left_joint_motor_wheel_1">
+    <mechanicalReduction>1</mechanicalReduction>   <!-- to be tuned -->
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="left_transmission_wheel_2">  <!-- with left bogie -->
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="WHEEL_LEFT_2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="left_joint_motor_wheel_2">
+    <mechanicalReduction>1</mechanicalReduction>   <!-- to be tuned -->
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="left_transmission_wheel_3">  <!-- with left bogie -->
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="WHEEL_LEFT_3">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="left_joint_motor_wheel_3">
+    <mechanicalReduction>1</mechanicalReduction>   <!-- to be tuned -->
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="right_transmission_wheel_1">  <!-- with right rocker -->
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="WHEEL_RIGHT_1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="right_joint_motor_wheel_1">
+    <mechanicalReduction>1</mechanicalReduction>   <!-- to be tuned -->
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="right_transmission_wheel_2">  <!-- with right bogie -->
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="WHEEL_RIGHT_2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="right_joint_motor_wheel_2">
+    <mechanicalReduction>1</mechanicalReduction>   <!-- to be tuned -->
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="right_transmission_wheel_3">  <!-- with right bogie -->
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="WHEEL_RIGHT_3">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="right_joint_motor_wheel_3">
+    <mechanicalReduction>1</mechanicalReduction>   <!-- to be tuned -->
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<!-- If possible, add this to a rover.gazebo file -->
+<!-- For the control -->
+<gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+     <robotNamespace>/rover</robotNamespace>
+     <alwaysOn>true</alwaysOn>
+     <updateRate>40</updateRate>
+     <odometryTopic>odom</odometryTopic>
+     <odometryFrame>odom</odometryFrame>
+     <robotBaseFrame>CHASSIS</robotBaseFrame>
+     <odometrySource>world</odometrySource>
+     <publishTf>1</publishTf>
+
+  </plugin>
+
+  <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>50.0</updateRate>
+    <bodyName>CHASSIS</bodyName>
+    <topicName>odom</topicName>
+    <gaussianNoise>0.01</gaussianNoise>
+    <frameName>map</frameName>
+    <xyzOffsets>0 0 0</xyzOffsets>
+    <rpyOffsets>0 0 0</rpyOffsets>
+  </plugin>
+
+  <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+    <robotNamespace>/rover</robotNamespace>
+    <jointName>Base_joint, BOGIE_LEFT , BOGIE_RIGHT , ROCKER_RIGHT </jointName>
+    <updateRate>100.0</updateRate>
+    <alwaysOn>true</alwaysOn>
+  </plugin>
+
+
+</gazebo>
+
+</robot>
