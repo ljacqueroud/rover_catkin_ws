@@ -59,53 +59,60 @@ def callback(twist):
     rospy.loginfo(twist)
 
     # look at the transformations between the base and wheels frames
-    try:
-        trans_l_1 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_LEFT_1', rospy.Time(0))
-    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-        print("Error: tf with left wheel 1 not found")
-        pass
-    try: 
-        trans_l_2 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_LEFT_2', rospy.Time(0))
-    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-        print("Error: tf with left wheel 2 not found")
-        pass
-    try: 
-        trans_l_3 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_LEFT_3', rospy.Time(0))
-    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-        print("Error: tf with left wheel 3 not found")
-        pass
-    try: 
-        trans_r_1 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_RIGHT_1', rospy.Time(0))
-    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-        print("Error: tf with right wheel 1 not found")
-        pass
-    try: 
-        trans_r_2 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_RIGHT_2', rospy.Time(0))
-    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-        print("Error: tf with right wheel 2 not found")
-        pass
-    try: 
-        trans_r_3 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_RIGHT_3', rospy.Time(0))
-    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-        print("Error: tf with right wheel 3 not found")
-        pass
-    
-    tf_lin_data_fields = [trans_l_1.transform.translation.x, trans_l_1.transform.translation.y, trans_l_1.transform.translation.z]
-    l_b_cpt = linalg.norm(tf_lin_data_fields)
-    tf_lin_data_fields = [trans_r_1.transform.translation.x, trans_r_1.transform.translation.y, trans_r_1.transform.translation.z]
-    r_b_cpt = linalg.norm(tf_lin_data_fields)
-    tf_lin_data_fields = [trans_l_2.transform.translation.x, trans_l_2.transform.translation.y, trans_l_2.transform.translation.z]
-    l_mid_b_cpt = linalg.norm(tf_lin_data_fields)
-    tf_lin_data_fields = [trans_r_2.transform.translation.x, trans_r_2.transform.translation.y, trans_r_2.transform.translation.z]
-    r_mid_b_cpt = linalg.norm(tf_lin_data_fields)
-    tf_lin_data_fields = [trans_l_3.transform.translation.x, trans_l_3.transform.translation.y, trans_l_3.transform.translation.z]
-    l_rear_b_cpt = linalg.norm(tf_lin_data_fields)
-    tf_lin_data_fields = [trans_r_3.transform.translation.x, trans_r_3.transform.translation.y, trans_r_3.transform.translation.z]
-    r_rear_b_cpt = linalg.norm(tf_lin_data_fields)
+#    try:
+#        trans_l_1 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_LEFT_1', rospy.Time(0))
+#    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+#        print("Error: tf with left wheel 1 not found")
+#        pass
+#    try: 
+#        trans_l_2 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_LEFT_2', rospy.Time(0))
+#    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+#        print("Error: tf with left wheel 2 not found")
+#        pass
+#    try: 
+#        trans_l_3 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_LEFT_3', rospy.Time(0))
+#    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+#        print("Error: tf with left wheel 3 not found")
+#        pass
+#    try: 
+#        trans_r_1 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_RIGHT_1', rospy.Time(0))
+#    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+#        print("Error: tf with right wheel 1 not found")
+#        pass
+#    try: 
+#        trans_r_2 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_RIGHT_2', rospy.Time(0))
+#    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+#        print("Error: tf with right wheel 2 not found")
+#        pass
+#    try: 
+#        trans_r_3 = tfBuffer.lookup_transform('ROVER_FRAME', 'WHEEL_RIGHT_3', rospy.Time(0))
+#    except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+#        print("Error: tf with right wheel 3 not found")
+#        pass
+#    
+#    tf_lin_data_fields = [trans_l_1.transform.translation.x, trans_l_1.transform.translation.y, trans_l_1.transform.translation.z]
+#    l_b_cpt = linalg.norm(tf_lin_data_fields)
+#    tf_lin_data_fields = [trans_r_1.transform.translation.x, trans_r_1.transform.translation.y, trans_r_1.transform.translation.z]
+#    r_b_cpt = linalg.norm(tf_lin_data_fields)
+#    tf_lin_data_fields = [trans_l_2.transform.translation.x, trans_l_2.transform.translation.y, trans_l_2.transform.translation.z]
+#    l_mid_b_cpt = linalg.norm(tf_lin_data_fields)
+#    tf_lin_data_fields = [trans_r_2.transform.translation.x, trans_r_2.transform.translation.y, trans_r_2.transform.translation.z]
+#    r_mid_b_cpt = linalg.norm(tf_lin_data_fields)
+#    tf_lin_data_fields = [trans_l_3.transform.translation.x, trans_l_3.transform.translation.y, trans_l_3.transform.translation.z]
+#    l_rear_b_cpt = linalg.norm(tf_lin_data_fields)
+#    tf_lin_data_fields = [trans_r_3.transform.translation.x, trans_r_3.transform.translation.y, trans_r_3.transform.translation.z]
+#    r_rear_b_cpt = linalg.norm(tf_lin_data_fields)
 
 
     lin_vel = twist.linear.x
     ang_vel = twist.angular.z
+
+    r_b_cpt = 1
+    l_b_cpt = 1
+    r_mid_b_cpt = 1
+    l_mid_b_cpt = 1
+    r_rear_b_cpt = 1
+    l_rear_b_cpt = 1
 
 
     # compute individual wheel velocity values based on a kinematic model
@@ -117,18 +124,18 @@ def callback(twist):
             # left turn
             rotation_r.data = - ang_vel*r_b_cpt
             rotation_l.data = - ang_vel*l_b_cpt
-            rotation_r_mid.data = 0 #- ang_vel #*r_mid_b_cpt
-            rotation_l_mid.data = 0 #- ang_vel #*l_mid_b_cpt
+            rotation_r_mid.data = - ang_vel*r_mid_b_cpt
+            rotation_l_mid.data = - ang_vel*l_mid_b_cpt
             rotation_r_rear.data = - ang_vel*r_rear_b_cpt
             rotation_l_rear.data = - ang_vel*l_rear_b_cpt
         else: 
             # right turn
-            rotation_r.data = - ang_vel*r_b_cpt
-            rotation_l.data = - ang_vel*l_b_cpt
-            rotation_r_mid.data = 0 #- ang_vel #*r_mid_b_cpt
-            rotation_l_mid.data = 0 #- ang_vel #*l_mid_b_cpt
-            rotation_r_rear.data = - ang_vel*r_rear_b_cpt
-            rotation_l_rear.data = - ang_vel*l_rear_b_cpt
+            rotation_r.data = + ang_vel*r_b_cpt
+            rotation_l.data = + ang_vel*l_b_cpt
+            rotation_r_mid.data = + ang_vel*r_mid_b_cpt
+            rotation_l_mid.data = + ang_vel*l_mid_b_cpt
+            rotation_r_rear.data = + ang_vel*r_rear_b_cpt
+            rotation_l_rear.data = + ang_vel*l_rear_b_cpt
     else:
         # tunable gains to prevent any wheel to lose the contact with the ground
         red_gain_lin = 0.7
@@ -143,12 +150,12 @@ def callback(twist):
             rotation_l_rear.data = lin_vel*red_gain_lin - ang_vel*l_rear_b_cpt*red_gain_ang
         elif ang_vel < 0:                               
             # right turn
-            rotation_r.data = -lin_vel*red_gain_lin - ang_vel*r_b_cpt*red_gain_ang
-            rotation_l.data = lin_vel*red_gain_lin - ang_vel*l_b_cpt*red_gain_ang
-            rotation_r_mid.data = -lin_vel*red_gain_lin - ang_vel*r_mid_b_cpt*red_gain_ang
-            rotation_l_mid.data = lin_vel*red_gain_lin - ang_vel*l_mid_b_cpt*red_gain_ang
-            rotation_r_rear.data = -lin_vel*red_gain_lin - ang_vel*r_rear_b_cpt*red_gain_ang
-            rotation_l_rear.data = lin_vel*red_gain_lin - ang_vel*l_rear_b_cpt*red_gain_ang
+            rotation_r.data = -lin_vel*red_gain_lin + ang_vel*r_b_cpt*red_gain_ang
+            rotation_l.data = lin_vel*red_gain_lin + ang_vel*l_b_cpt*red_gain_ang
+            rotation_r_mid.data = -lin_vel*red_gain_lin + ang_vel*r_mid_b_cpt*red_gain_ang
+            rotation_l_mid.data = lin_vel*red_gain_lin + ang_vel*l_mid_b_cpt*red_gain_ang
+            rotation_r_rear.data = -lin_vel*red_gain_lin + ang_vel*r_rear_b_cpt*red_gain_ang
+            rotation_l_rear.data = lin_vel*red_gain_lin + ang_vel*l_rear_b_cpt*red_gain_ang
         else:                                                   
             # straight motion
             rotation_r.data = -lin_vel 
