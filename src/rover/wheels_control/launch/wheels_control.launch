@@ -7,7 +7,7 @@
     
     <!-- load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" 
-        respawn="true" output="screen" ns="rover"
+	respawn="true" output="screen" ns="/rover"
         args="joint_state_controller 
               left_joint_effort_controller_1
               left_joint_effort_controller_2
