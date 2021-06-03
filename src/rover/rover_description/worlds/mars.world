@@ -25,7 +25,7 @@
       <link name='link'>
         <collision name='collision'>
           <geometry>
-            <mesh><uri>model://mars_AR.dae</uri></mesh>
+            <mesh><uri>model://mars_flat.dae</uri></mesh>
           </geometry>
           <surface>
             <contact>
@@ -34,8 +34,8 @@
             </contact>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
+                <mu>1000</mu>
+                <mu2>500</mu2>
               </ode>
               <torsional>
                 <ode/>
@@ -48,7 +48,7 @@
         <visual name='visual'>
           <cast_shadows>0</cast_shadows>
           <geometry>
-            <mesh><uri>model://mars_AR.dae</uri></mesh>
+            <mesh><uri>model://mars_flat.dae</uri></mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>

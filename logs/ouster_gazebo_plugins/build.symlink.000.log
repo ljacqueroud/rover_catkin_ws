@@ -1,0 +1,5 @@
+Symlinking /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/lib/libgazebo_ros_ouster_gpu_laser.so
+Symlinking /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/lib/libgazebo_ros_ouster_laser.so
+Symlinking /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/lib/pkgconfig/ouster_gazebo_plugins.pc
+Symlinking /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/share/ouster_gazebo_plugins/cmake/ouster_gazebo_pluginsConfig-version.cmake
+Symlinking /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/share/ouster_gazebo_plugins/cmake/ouster_gazebo_pluginsConfig.cmake

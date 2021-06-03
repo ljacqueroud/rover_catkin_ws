@@ -1,0 +1,8 @@
+[35m[1mScanning dependencies of target gazebo_ros_ouster_laser[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/gazebo_ros_ouster_laser.dir/src/GazeboRosOusterLaser.cpp.o[0m
+[ 50%] [32m[1mLinking CXX shared library /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/.private/ouster_gazebo_plugins/lib/libgazebo_ros_ouster_laser.so[0m
+[ 50%] Built target gazebo_ros_ouster_laser
+[35m[1mScanning dependencies of target gazebo_ros_ouster_gpu_laser[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/gazebo_ros_ouster_gpu_laser.dir/src/GazeboRosOusterLaser.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/.private/ouster_gazebo_plugins/lib/libgazebo_ros_ouster_gpu_laser.so[0m
+[100%] Built target gazebo_ros_ouster_gpu_laser

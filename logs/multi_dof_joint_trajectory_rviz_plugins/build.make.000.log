@@ -1,0 +1,8 @@
+[ 16%] [34m[1mGenerating include/multi_dof_joint_trajectory_rviz_plugins/moc_MultiDOFJointTrajectoryDisplay.cpp[0m
+[35m[1mScanning dependencies of target multi_dof_joint_trajectory_rviz_plugins[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/multi_dof_joint_trajectory_rviz_plugins.dir/src/MultiDOFJointTrajectoryDisplay.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/multi_dof_joint_trajectory_rviz_plugins.dir/src/MultiDOFJointTrajectoryPointConnectionVisual.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/multi_dof_joint_trajectory_rviz_plugins.dir/src/MultiDOFJointTrajectoryPointVisual.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/multi_dof_joint_trajectory_rviz_plugins.dir/include/multi_dof_joint_trajectory_rviz_plugins/moc_MultiDOFJointTrajectoryDisplay.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/.private/multi_dof_joint_trajectory_rviz_plugins/lib/libmulti_dof_joint_trajectory_rviz_plugins.so[0m
+[100%] Built target multi_dof_joint_trajectory_rviz_plugins

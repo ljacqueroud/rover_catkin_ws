@@ -1,14 +1,14 @@
 controller_frequency: 5
 
 TrajectoryPlannerROS:
-  max_vel_x: 0.5
+  max_vel_x: 10
   min_vel_x: 0.01
-  max_vel_theta: 1.5
+  max_vel_theta: 15
   min_in_place_vel_theta: 0.01
 
-  acc_lim_theta: 1.5
-  acc_lim_x: 0.5
-  acc_lim_y: 0.5
+  acc_lim_theta: 10
+  acc_lim_x: 5
+  acc_lim_y: 5
 
 #  meter_scoring: true # maybe remove this
   holonomic_robot: false

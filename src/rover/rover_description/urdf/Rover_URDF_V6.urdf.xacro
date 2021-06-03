@@ -181,6 +181,19 @@
         <mesh
           filename="package://rover_description/meshes/WHEEL_LEFT_1.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.05</min_depth>
+          </ode>
+        </contact>
+      </surface>
     </collision>
   </link>
   <joint
@@ -293,6 +306,19 @@
         <mesh
           filename="package://rover_description/meshes/WHEEL_LEFT_2.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.05</min_depth>
+          </ode>
+        </contact>
+      </surface>
     </collision>
   </link>
   <joint
@@ -346,6 +372,19 @@
         <mesh
           filename="package://rover_description/meshes/WHEEL_LEFT_3.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.05</min_depth>
+          </ode>
+        </contact>
+      </surface>
     </collision>
   </link>
   <joint
@@ -458,6 +497,19 @@
         <mesh
           filename="package://rover_description/meshes/WHEEL_RIGHT_1.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.05</min_depth>
+          </ode>
+        </contact>
+      </surface>
     </collision>
   </link>
   <joint
@@ -570,6 +622,19 @@
         <mesh
           filename="package://rover_description/meshes/WHEEL_RIGHT_2.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.05</min_depth>
+          </ode>
+        </contact>
+      </surface>
     </collision>
   </link>
   <joint
@@ -623,6 +688,19 @@
         <mesh
           filename="package://rover_description/meshes/WHEEL_RIGHT_3.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.05</min_depth>
+          </ode>
+        </contact>
+      </surface>
     </collision>
   </link>
   <joint

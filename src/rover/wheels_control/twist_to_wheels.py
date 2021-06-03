@@ -210,7 +210,7 @@ def dummy_controller():
     # read the tf between suspension joints
     listener_tf = tf2_ros.TransformListener(tfBuffer)
     # cmd_vel msg contains longitudinal and angular velocities expressed with respect to the base_frame
-    sub = rospy.Subscriber("/cmd_vel", Twist, callback)
+    sub = rospy.Subscriber("/cmd_vel_chosen", Twist, callback)
 
 
 
