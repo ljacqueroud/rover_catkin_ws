@@ -1,4 +1,0 @@
-[35m[1mScanning dependencies of target relaxed_astar_lib[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/relaxed_astar_lib.dir/src/RAstar_ros.cpp.o[0m
-[100%] [32m[1mLinking CXX shared library /home/lorenzo/Documents/epfl/mt_ma4/xplore/git/rover_catkin_ws/devel/.private/relaxed_astar/lib/librelaxed_astar_lib.so[0m
-[100%] Built target relaxed_astar_lib
