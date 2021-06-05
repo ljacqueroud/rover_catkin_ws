@@ -334,14 +334,14 @@ void ElevationMapping::pointCloudCallback(const sensor_msgs::PointCloud2ConstPtr
         robotPoseCache_.getElemBeforeTime(lastPointCloudUpdateTime_);
     if (!poseMessage) {
       // Tell the user that either for the timestamp no pose is available or that the buffer is possibly empty
-      if (robotPoseCache_.getOldestTime().toSec() > lastPointCloudUpdateTime_.toSec()) {
-        ROS_ERROR("The oldest pose available is at %f, requested pose at %f", robotPoseCache_.getOldestTime().toSec(),
-                  lastPointCloudUpdateTime_.toSec());
-      } else {
-        ROS_ERROR("Could not get pose information from robot for time %f. Buffer empty?", lastPointCloudUpdateTime_.toSec());
-        ROS_ERROR("Etienne : robotPoseCache_.getOldestTime().toSec() == %f", robotPoseCache_.getOldestTime().toSec());
-        ROS_ERROR("Etienne : robotPoseCache_.getLatestTime().toSec() == %f", robotPoseCache_.getLatestTime().toSec());
-      }
+//      if (robotPoseCache_.getOldestTime().toSec() > lastPointCloudUpdateTime_.toSec()) {
+//        ROS_ERROR("The oldest pose available is at %f, requested pose at %f", robotPoseCache_.getOldestTime().toSec(),
+//                  lastPointCloudUpdateTime_.toSec());
+//      } else {
+//        ROS_ERROR("Could not get pose information from robot for time %f. Buffer empty?", lastPointCloudUpdateTime_.toSec());
+//        ROS_ERROR("Etienne : robotPoseCache_.getOldestTime().toSec() == %f", robotPoseCache_.getOldestTime().toSec());
+//        ROS_ERROR("Etienne : robotPoseCache_.getLatestTime().toSec() == %f", robotPoseCache_.getLatestTime().toSec());
+//      }
       return;
     }
     robotPoseCovariance = Eigen::Map<const Eigen::MatrixXd>(poseMessage->pose.covariance.data(), 6, 6);
@@ -476,10 +476,10 @@ bool ElevationMapping::updatePrediction(const ros::Time& time) {
   ROS_DEBUG("Updating map with latest prediction from time %f.", robotPoseCache_.getLatestTime().toSec());
 
   if (time + timeTolerance_ < map_.getTimeOfLastUpdate()) {
-    ROS_ERROR("Requested update with time stamp %f, but time of last update was %f.", time.toSec(), map_.getTimeOfLastUpdate().toSec());
+//    ROS_ERROR("Requested update with time stamp %f, but time of last update was %f.", time.toSec(), map_.getTimeOfLastUpdate().toSec());
     return false;
   } else if (time < map_.getTimeOfLastUpdate()) {
-    ROS_DEBUG("Requested update with time stamp %f, but time of last update was %f. Ignoring update.", time.toSec(),
+//    ROS_DEBUG("Requested update with time stamp %f, but time of last update was %f. Ignoring update.", time.toSec(),
               map_.getTimeOfLastUpdate().toSec());
     return true;
   }
@@ -488,12 +488,12 @@ bool ElevationMapping::updatePrediction(const ros::Time& time) {
   boost::shared_ptr<geometry_msgs::PoseWithCovarianceStamped const> poseMessage = robotPoseCache_.getElemBeforeTime(time);
   if (!poseMessage) {
     // Tell the user that either for the timestamp no pose is available or that the buffer is possibly empty
-    if (robotPoseCache_.getOldestTime().toSec() > lastPointCloudUpdateTime_.toSec()) {
-      ROS_ERROR("The oldest pose available is at %f, requested pose at %f", robotPoseCache_.getOldestTime().toSec(),
-                lastPointCloudUpdateTime_.toSec());
-    } else {
-      ROS_ERROR("Could not get pose information from robot for time %f. Buffer empty?", lastPointCloudUpdateTime_.toSec());
-    }
+//    if (robotPoseCache_.getOldestTime().toSec() > lastPointCloudUpdateTime_.toSec()) {
+//      ROS_ERROR("The oldest pose available is at %f, requested pose at %f", robotPoseCache_.getOldestTime().toSec(),
+//                lastPointCloudUpdateTime_.toSec());
+//    } else {
+//      ROS_ERROR("Could not get pose information from robot for time %f. Buffer empty?", lastPointCloudUpdateTime_.toSec());
+//    }
     return false;
   }
 
