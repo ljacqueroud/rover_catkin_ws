@@ -20,7 +20,7 @@
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>model://mars_AR.dae</uri>
+              <uri>model://mars.dae</uri>
             </mesh>
           </geometry>
           <surface>
@@ -45,7 +45,7 @@
           <cast_shadows>0</cast_shadows>
           <geometry>
             <mesh>
-              <uri>model://mars_AR.dae</uri>
+              <uri>model://mars.dae</uri>
             </mesh>
           </geometry>
         </visual>
