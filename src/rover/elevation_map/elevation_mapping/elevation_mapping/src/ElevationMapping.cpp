@@ -370,7 +370,7 @@ void ElevationMapping::pointCloudCallback(const sensor_msgs::PointCloud2ConstPtr
 
   // Update map from motion prediction.
   if (!updatePrediction(lastPointCloudUpdateTime_)) {
-    ROS_ERROR("Updating process noise failed.");
+//    ROS_ERROR("Updating process noise failed.");
     resetMapUpdateTimer();
     return;
   }
@@ -430,7 +430,7 @@ void ElevationMapping::mapUpdateTimerCallback(const ros::TimerEvent&) {
 
   // Update map from motion prediction.
   if (!updatePrediction(time)) {
-    ROS_ERROR("Updating process noise failed.");
+//    ROS_ERROR("Updating process noise failed.");
     resetMapUpdateTimer();
     return;
   }
