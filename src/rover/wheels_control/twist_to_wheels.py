@@ -130,12 +130,12 @@ def callback(twist):
             rotation_l_rear.data = - ang_vel*l_rear_b_cpt
         else: 
             # right turn
-            rotation_r.data = + ang_vel*r_b_cpt
-            rotation_l.data = + ang_vel*l_b_cpt
-            rotation_r_mid.data = + ang_vel*r_mid_b_cpt
-            rotation_l_mid.data = + ang_vel*l_mid_b_cpt
-            rotation_r_rear.data = + ang_vel*r_rear_b_cpt
-            rotation_l_rear.data = + ang_vel*l_rear_b_cpt
+            rotation_r.data = - ang_vel*r_b_cpt
+            rotation_l.data = - ang_vel*l_b_cpt
+            rotation_r_mid.data = - ang_vel*r_mid_b_cpt
+            rotation_l_mid.data = - ang_vel*l_mid_b_cpt
+            rotation_r_rear.data = - ang_vel*r_rear_b_cpt
+            rotation_l_rear.data = - ang_vel*l_rear_b_cpt
     else:
         # tunable gains to prevent any wheel to lose the contact with the ground
         red_gain_lin = 0.7
@@ -150,12 +150,12 @@ def callback(twist):
             rotation_l_rear.data = lin_vel*red_gain_lin - ang_vel*l_rear_b_cpt*red_gain_ang
         elif ang_vel < 0:                               
             # right turn
-            rotation_r.data = -lin_vel*red_gain_lin + ang_vel*r_b_cpt*red_gain_ang
-            rotation_l.data = lin_vel*red_gain_lin + ang_vel*l_b_cpt*red_gain_ang
-            rotation_r_mid.data = -lin_vel*red_gain_lin + ang_vel*r_mid_b_cpt*red_gain_ang
-            rotation_l_mid.data = lin_vel*red_gain_lin + ang_vel*l_mid_b_cpt*red_gain_ang
-            rotation_r_rear.data = -lin_vel*red_gain_lin + ang_vel*r_rear_b_cpt*red_gain_ang
-            rotation_l_rear.data = lin_vel*red_gain_lin + ang_vel*l_rear_b_cpt*red_gain_ang
+            rotation_r.data = -lin_vel*red_gain_lin - ang_vel*r_b_cpt*red_gain_ang
+            rotation_l.data = lin_vel*red_gain_lin - ang_vel*l_b_cpt*red_gain_ang
+            rotation_r_mid.data = -lin_vel*red_gain_lin - ang_vel*r_mid_b_cpt*red_gain_ang
+            rotation_l_mid.data = lin_vel*red_gain_lin - ang_vel*l_mid_b_cpt*red_gain_ang
+            rotation_r_rear.data = -lin_vel*red_gain_lin - ang_vel*r_rear_b_cpt*red_gain_ang
+            rotation_l_rear.data = lin_vel*red_gain_lin - ang_vel*l_rear_b_cpt*red_gain_ang
         else:                                                   
             # straight motion
             rotation_r.data = -lin_vel 
